@@ -16,31 +16,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqf-Yf-eJm">
-                                <rect key="frame" x="107" y="100" width="200" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqf-Yf-eJm">
+                                <rect key="frame" x="95" y="128" width="224" height="114"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="italy" title=""/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F4n-gp-pog"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfc-RX-oaX">
-                                <rect key="frame" x="107" y="380" width="200" height="100"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfc-RX-oaX">
+                                <rect key="frame" x="95" y="476" width="224" height="114"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="italy" title=""/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CJz-WJ-ueK"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M25-kA-PpW">
-                                <rect key="frame" x="107" y="240" width="200" height="100"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M25-kA-PpW">
+                                <rect key="frame" x="95" y="302" width="224" height="114"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="italy" title=""/>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qdg-Zj-9yU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="M25-kA-PpW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IBv-K1-wis"/>
-                            <constraint firstItem="M25-kA-PpW" firstAttribute="top" secondItem="yqf-Yf-eJm" secondAttribute="bottom" constant="30" id="S9z-v8-PCm"/>
+                            <constraint firstItem="M25-kA-PpW" firstAttribute="top" secondItem="yqf-Yf-eJm" secondAttribute="bottom" constant="60" id="S9z-v8-PCm"/>
                             <constraint firstItem="yqf-Yf-eJm" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VZG-N2-TYO"/>
-                            <constraint firstItem="yfc-RX-oaX" firstAttribute="top" secondItem="M25-kA-PpW" secondAttribute="bottom" constant="30" id="nRz-sL-BMs"/>
+                            <constraint firstItem="yfc-RX-oaX" firstAttribute="top" secondItem="M25-kA-PpW" secondAttribute="bottom" constant="60" id="nRz-sL-BMs"/>
                             <constraint firstItem="yfc-RX-oaX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wiP-ia-VHx"/>
-                            <constraint firstItem="yqf-Yf-eJm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="xDp-Tw-iry"/>
+                            <constraint firstItem="yqf-Yf-eJm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="xDp-Tw-iry"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Guess The Flag" id="2uC-g6-dm0"/>
