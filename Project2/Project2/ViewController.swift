@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barStyle = .default
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(shareTapped))
         
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
@@ -68,6 +69,15 @@ class ViewController: UIViewController {
         
         present(alert, animated: true)
         
+    }
+    
+    @objc func shareTapped(){
+        
+        let alert = UIAlertController(title: "SCORE", message: "Your score is \(score)", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        present(alert, animated: true)
     }
     
 }
