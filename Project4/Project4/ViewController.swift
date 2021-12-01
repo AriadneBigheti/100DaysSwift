@@ -79,6 +79,9 @@ class ViewController: UIViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         let url = navigationAction.request.url
         
+        let ac = UIAlertController(title: "Blocked", message: "This website isn't allowed", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
         if let host = url?.host {
             for website in websites {
                 if host.contains(website) {
@@ -87,7 +90,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
                 }
             }
         }
-        
+            
+        present(ac, animated: true)
         decisionHandler(.cancel)
     }
 }
