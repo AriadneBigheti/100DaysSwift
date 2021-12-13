@@ -16,6 +16,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAnswer))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(startGame))
         
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt"){
             if let startWords = try? String(contentsOf: startWordsURL){
@@ -30,7 +31,7 @@ class ViewController: UITableViewController {
         startGame()
     }
     
-    func startGame(){
+    @objc func startGame(){
         title = allWords.randomElement()
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
@@ -68,7 +69,7 @@ class ViewController: UITableViewController {
         if isPossible(lowercasedAnswer){
             if isOriginal(lowercasedAnswer){
                 if isReal(lowercasedAnswer){
-                    usedWords.insert(answer, at: 0)
+                    usedWords.insert(lowercasedAnswer, at: 0)
                     
                     let indexPath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexPath], with: .automatic)
@@ -109,15 +110,46 @@ class ViewController: UITableViewController {
     }
     
     func isOriginal(_ answer: String) -> Bool{
-        return !usedWords.contains(answer)
+        guard let title = title?.lowercased() else { return false }
+        var isOriginal = true
+        
+        if (answer == title){
+            isOriginal = false
+            showErrorMessage(title: "Ops...", message: "You can't use the original word!")
+        }else{
+            isOriginal = !usedWords.contains(answer)
+        }
+        
+        return isOriginal
     }
     
     func isReal (_ answer: String) -> Bool{
+        var isReal = false
+        
+        if (answer.count < 3){
+            isReal = false
+            showErrorMessage(title: "Ops...", message: "The word needs to have more than 2 letters!")
+        }
+        else{
+            
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: answer.utf16.count)
         let misspeledRange = checker.rangeOfMisspelledWord(in: answer, range: range, startingAt: 0, wrap: false, language: "en")
         
-        return misspeledRange.location == NSNotFound
+        isReal = misspeledRange.location == NSNotFound
+        }
+        
+        return isReal
     }
+    
+    func showErrorMessage(title: String, message: String){
+        
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        present(ac, animated: true)
+    }
+    
 }
+
 
